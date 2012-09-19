@@ -4,7 +4,7 @@ ob_start();
   Plugin Name: Global Body Mass Index Calculator
   Plugin URI: http://www.ostheimer.at/global-body-mass-index-calculator-wordpress-plugin/
   Description: A Global Body Mass Index Calculator Widget. If you need insert in article please use short tag [gbmicalc]
-  Version: 1.0.5.0
+  Version: 1.0.6.0
   Author: helpstring
   Author URI: http://www.ostheimer.at/
  */
