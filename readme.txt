@@ -3,7 +3,7 @@ Contributors: helpstring
 Tags: GBMI calculator, Global Body Mass Index Calculator
 Requires at least: 3.0
 Tested up to: 3.4.2
-Stable tag: 1.0.5.0
+Stable tag: 1.0.6.0
 
 Global BMI Calculator allows you to both calculate the BMI for grown ups and children and create a localized version for you language!
 
@@ -16,7 +16,7 @@ See the Global BMI Calculator site for a test run!
 
 == Installation ==
 
-1. Upload  "gbmi-calc-widget" folder to the `/wp-content/plugins/` directory
+1. Upload  "global-body-mass-index-calculator" folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Add the GBMI Calculator Widget to your widget enabled space
 1. If you need insert in article please use short tag [bmicalc]
@@ -43,3 +43,6 @@ You can add the shortcode [gbmicalc] in a page so that the GBMI calculator will 
 
 = 1.0.5.0 =
 * Fixed many bugs
+
+= 1.0.6.0 =
+* Critical error fixed
