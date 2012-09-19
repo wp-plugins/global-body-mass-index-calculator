@@ -14,19 +14,19 @@ register_deactivation_hook(__FILE__, array('GBMI_Calc_Widget', 'deactivate'));
 
 add_action('init', 'add_gbmi_javascript');
 define('MY_TEXTDOMAIN', 'GBMI-calc');
-load_plugin_textdomain(MY_TEXTDOMAIN, WP_PLUGIN_URL . '/global-body-mass-index-calculator/languages', 'gbmicalc/languages');
+load_plugin_textdomain(MY_TEXTDOMAIN, WP_PLUGIN_URL . '/gbmicalc/languages', 'gbmicalc/languages');
 
 function add_gbmi_javascript() {
     if (is_admin()) {
-        wp_enqueue_script('calc-colorpicker', WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/plugins/colorpicker/colorpicker.js', array('jquery'));
-        wp_enqueue_style('colorpicker-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/plugins/colorpicker/css/colorpicker.css');
-        wp_enqueue_style('backend-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/css/backend.css');
+        wp_enqueue_script('calc-colorpicker', WP_PLUGIN_URL . '/gbmicalc/js/plugins/colorpicker/colorpicker.js', array('jquery'));
+        wp_enqueue_style('colorpicker-styles', WP_PLUGIN_URL . '/gbmicalc/js/plugins/colorpicker/css/colorpicker.css');
+        wp_enqueue_style('backend-styles', WP_PLUGIN_URL . '/gbmicalc/css/backend.css');
     } else {
 		wp_deregister_script( 'jquery' ); // deregistering any jquery script
-		wp_register_script( 'jquery', WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/jquery.min.js');// registering jquery again
+		wp_register_script( 'jquery', WP_PLUGIN_URL . '/gbmicalc/js/jquery.min.js');// registering jquery again
         wp_enqueue_script('jquery');
 
-        wp_enqueue_style('front-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/css/front.css');
+        wp_enqueue_style('front-styles', WP_PLUGIN_URL . '/gbmicalc/css/front.css');
     }
 }
 
@@ -104,7 +104,7 @@ class GBMI_Calc_Widget {
                                                                    value="yes" <?php echo $data['allowLink'] == 'yes' ? "checked" : "" ?>/></label>
         </p>
 
-        <script src="<?php echo WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/calcs.js'; ?>"></script>
+        <script src="<?php echo WP_PLUGIN_URL . '/gbmicalc/js/calcs.js'; ?>"></script>
 
         <?php
         if (isset($_POST['title'])) { 
@@ -283,7 +283,7 @@ class GBMI_Calc_Widget {
             });
         </script>
 
-        <script src="<?php echo WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/child.js'; ?>"></script>
+        <script src="<?php echo WP_PLUGIN_URL . '/gbmicalc/js/child.js'; ?>"></script>
 
         <style type="text/css">
             .ui-widget {
@@ -479,7 +479,7 @@ function register_my_settings() {
 function gbmi_calc_settings() {
 
     $data = get_option('GBMI_Calc_Widget'); ?>
-    <script src="<?php echo WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/calcs.js'; ?>"></script>    
+    <script src="<?php echo WP_PLUGIN_URL . '/gbmicalc/js/calcs.js'; ?>"></script>    
     <div class="wrap">
         <h2>Global Body Mass Index Calculator Settings</h2>
 
