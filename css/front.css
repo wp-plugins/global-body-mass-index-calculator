@@ -1,0 +1,109 @@
+#gdmi-tabs ul {
+    margin-bottom: 0px;
+}
+
+.gbmi_div {
+    padding: 5px;
+    margin: 0;
+    width: auto;
+    padding-bottom: 10px;
+}
+
+.gbmi_div h4 {
+    margin: 0;
+    padding: 3px;
+}
+
+#grown, #child {
+    padding: 0px;
+}
+
+.bmisubmit {
+    cursor: pointer;
+    border: 0;
+    padding: 5px;
+  /*  font-weight: bold; */
+    border: 1px solid #AAAAAA;
+}
+
+#child label, #grown label {
+        padding: 0px 8px 0px 0;
+        margin: auto auto;
+        width: 89px;
+        float: left;
+        clear: left;
+        text-align: right;
+    /*   font-weight: bold; */
+        font-size: 12px;
+}
+
+ #grown label{
+    width: 94px;
+ }
+
+.input_fw{
+      width: 30px;
+}
+
+#bmisubmit, #childbmisubmit {margin: 5px  0px  0px  0px;}
+
+.gbmi_div div{margin: 0px;}
+
+#BMIresults, #childBMIresults {
+    background-color: white;
+/*
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    */
+    border: 1px solid #AAA;
+
+    display: none;
+  /*  font-size: 14pt; */
+    margin-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+ /*   font-weight: bold; */
+}
+
+.gbmi_div h2 { padding: 5px 0 5px 5px; }
+
+.gbmi_div input, .gbmi_div textarea, .gbmi_div button {
+    padding: 0;
+}
+
+span.bmifeet, span.bmipounds { margin-left: 8px; font-size: 12px }
+
+#infotext { font-size: 12px; font: 12px/20px Arial,sans-serif !important;}
+
+#bmisubmit, #childbmisubmit { padding: 3px; }
+
+.gbmi_div select { width: 95px; min-width: 180px !important}
+
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+    border-bottom-right-radius: 1px !important;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+    border-bottom-left-radius: 1px !important;
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+    border-top-right-radius: 1px !important;
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+    border-top-left-radius: 1px !important;
+}
+
+.gender_select{
+    
+}
+.age_select{
+    
+}
+
