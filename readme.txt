@@ -19,7 +19,7 @@ See the Global BMI Calculator site for a test run!
 1. Upload  "global-body-mass-index-calculator" folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Add the GBMI Calculator Widget to your widget enabled space
-1. If you need insert in article please use short tag [bmicalc]
+1. If you need insert in article please use short tag [gbmicalc]
 
 == Screenshots ==
 
