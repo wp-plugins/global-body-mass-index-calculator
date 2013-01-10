@@ -12,7 +12,9 @@ Global BMI Calculator allows you to both calculate the BMI for grown ups and chi
 Shortcode & Widget support: Using the shortcode [gbmicalc] the calculator can either be rendered in posts or page or added as widget to the sidebar.
 Localization: It is global because you can switch from standard to metric system and localize all shown text.
 
-See the Global BMI Calculator site for a test run!
+**Try the demo**
+
+http://www.ostheimer.at/leistungen-preise/wordpress/plugins/global-body-mass-index-calculator/
 
 == Installation ==
 

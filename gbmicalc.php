@@ -121,6 +121,7 @@ class GBMI_Calc_Widget {
     }
 
     function widget($args, $content=NULL) {
+		ob_start();
 
         @extract($args);
         $options = get_option('GBMI_Calc_Widget', $data);
@@ -449,6 +450,11 @@ class GBMI_Calc_Widget {
 
         <?php
         echo $after_widget; 
+		
+		$output_string = ob_get_contents();
+		ob_end_clean();
+	
+		return $output_string;
 
     }  // widget() function closed
 
