@@ -36,6 +36,19 @@ See the Global BMI Calculator site for a test run!
 
 You can add the shortcode [gbmicalc] in a page so that the GBMI calculator will be diplayed in that page.
 
+= How can I translate the Plugin? =
+
+1. Download and install a translation tool like Poedit 
+2. Go to the root directory of the plugin
+3. Open the "languages" folder
+4. Duplicate the file "GBMI-calc-xx_XX.pot"
+5. Rename the file and replace xx with your language code (http://www.gnu.org/software/gettext/manual/html_chapter/gettext_16.html#Language-Codes)
+6. Rename the file and replace XX with your country code (http://www.gnu.org/software/gettext/manual/html_chapter/gettext_16.html#Country-Codes)
+7. Open the renamed file and translate the strings
+8. Save the file
+9. Upload the generated .mo file
+10.Done!
+
 == Changelog ==
 
 = 1.0.1.0 =
