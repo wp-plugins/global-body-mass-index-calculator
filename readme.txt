@@ -44,10 +44,9 @@ You can add the shortcode [gbmicalc] in a page so that the GBMI calculator will 
 4. Duplicate the file "GBMI-calc-xx_XX.pot"
 5. Rename the file and replace xx with your language code (http://www.gnu.org/software/gettext/manual/html_chapter/gettext_16.html#Language-Codes)
 6. Rename the file and replace XX with your country code (http://www.gnu.org/software/gettext/manual/html_chapter/gettext_16.html#Country-Codes)
-7. Open the renamed file and translate the strings
+7. Open the renamed file with Poedit and translate the strings
 8. Save the file
 9. Upload the generated .mo file
-10.Done!
 
 == Changelog ==
 
