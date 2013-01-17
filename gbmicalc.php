@@ -454,7 +454,7 @@ class GBMI_Calc_Widget {
 		$output_string = ob_get_contents();
 		ob_end_clean();
 	
-		return $output_string;
+		echo $output_string;
 
     }  // widget() function closed
 
