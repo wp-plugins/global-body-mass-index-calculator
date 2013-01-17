@@ -612,15 +612,7 @@ function add_scripts() {
     ?>
 	
 	
-    <?php if( wp_get_theme() == "Propulsion" ) { 
-		if(!is_front_page()) {
-	?>
-		<script type="text/javascript" src="<?php echo plugin_dir_url(''); ?>global-body-mass-index-calculator/js/jquery.tools.min.js"></script>
-	<?php } 
-	} 
-	else { ?>
-		<script type="text/javascript" src="<?php echo plugin_dir_url(''); ?>global-body-mass-index-calculator/js/jquery.tools.min.js"></script>
-	<?php } ?>
+	<script type="text/javascript" src="<?php echo plugin_dir_url(''); ?>global-body-mass-index-calculator/js/jquery.tools.min.js"></script>
 	
     <link rel="stylesheet" type="text/css" href="<?php echo plugin_dir_url(''); ?>global-body-mass-index-calculator/css/tab.css" />
     <style type="text/css">
