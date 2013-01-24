@@ -19,7 +19,10 @@ Global BMI Calculator allows you to both calculate the BMI for grown ups and chi
 * It is global because you can switch from standard to metric system and localize all shown text.
 
 #### Try the demo
-See the [Global Body Mass Index Calculator site](http://www.ostheimer.at/leistungen-preise/wordpress/plugins/global-body-mass-index-calculator/ "Global Body Mass Index Calculator") for a test run!
+See the [Global Body Mass Index Calculator site](http://www.gesundesabnehmen.at "Global Body Mass Index Calculator") in the sidebar at the bottom of the page!
+
+#### Other Wordpress Plugins by Ostheimer
+See other Wordpress Plugins at our [Plugin-Site](http://www.ostheimer.at/leistungen-preise/wordpress/plugins/ "Plugin-Site")
 
 == Installation ==
 
