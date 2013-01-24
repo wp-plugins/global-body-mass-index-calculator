@@ -3,7 +3,7 @@ Contributors: helpstring
 Tags: GBMI calculator, Global Body Mass Index Calculator
 Requires at least: 3.0
 Tested up to: 3.5
-Stable tag: 1.0.7.0
+Stable tag: 1.0.8.0
 
 Global BMI Calculator allows you to both calculate the BMI for grown ups and children and create a localized version for you language!
 
