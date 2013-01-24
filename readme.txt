@@ -22,7 +22,7 @@ Global BMI Calculator allows you to both calculate the BMI for grown ups and chi
 See the [Global Body Mass Index Calculator site](http://www.gesundesabnehmen.at "Global Body Mass Index Calculator") in the sidebar at the bottom of the page!
 
 #### Other Wordpress Plugins by Ostheimer
-See other Wordpress Plugins at our [Plugin-Site](http://www.ostheimer.at/leistungen-preise/wordpress/plugins/ "Plugin-Site")
+See other Wordpress Plugins on our [Plugin-Site](http://www.ostheimer.at/leistungen-preise/wordpress/plugins/ "Plugin-Site")
 
 == Installation ==
 
