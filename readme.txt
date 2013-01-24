@@ -2,17 +2,24 @@
 Contributors: helpstring
 Tags: GBMI calculator, Global Body Mass Index Calculator
 Requires at least: 3.0
-Tested up to: 3.4.2
-Stable tag: 1.0.6.0
+Tested up to: 3.5
+Stable tag: 1.0.7.0
 
 Global BMI Calculator allows you to both calculate the BMI for grown ups and children and create a localized version for you language!
 
 == Description ==
 
-Shortcode & Widget support: Using the shortcode [gbmicalc] the calculator can either be rendered in posts or page or added as widget to the sidebar.
-Localization: It is global because you can switch from standard to metric system and localize all shown text.
+#### Shortcode
+* You can add the Global BMI Calculator via shortcode [gbmicalc]
 
-See the Global BMI Calculator site for a test run!
+#### Widget
+* Just insert the widget in the chosen sidebar, type a title and activate the wanted options
+
+#### Localization 
+* It is global because you can switch from standard to metric system and localize all shown text.
+
+#### Try the demo
+See the [Global Body Mass Index Calculator site](http://www.ostheimer.at/leistungen-preise/wordpress/plugins/global-body-mass-index-calculator/ "Global Body Mass Index Calculator") for a test run!
 
 == Installation ==
 
@@ -36,6 +43,18 @@ See the Global BMI Calculator site for a test run!
 
 You can add the shortcode [gbmicalc] in a page so that the GBMI calculator will be diplayed in that page.
 
+= How can I translate the Plugin? =
+
+1. Download and install a translation tool like Poedit 
+2. Go to the root directory of the plugin
+3. Open the "languages" folder
+4. Duplicate the file "GBMI-calc-xx_XX.pot"
+5. Rename the file and replace xx with your language code (http://www.gnu.org/software/gettext/manual/html_chapter/gettext_16.html#Language-Codes)
+6. Rename the file and replace XX with your country code (http://www.gnu.org/software/gettext/manual/html_chapter/gettext_16.html#Country-Codes)
+7. Open the renamed file with Poedit and translate the strings
+8. Save the file
+9. Upload the generated .mo file
+
 == Changelog ==
 
 = 1.0.1.0 =
@@ -46,3 +65,7 @@ You can add the shortcode [gbmicalc] in a page so that the GBMI calculator will 
 
 = 1.0.6.0 =
 * Critical error fixed
+
+= 1.0.7.0 =
+* Tested up to Wordpress 3.5
+* Translation fixed

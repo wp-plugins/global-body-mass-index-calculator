@@ -10,204 +10,179 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Poedit-Language: \n"
-"X-Poedit-Country: \n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
-"X-Poedit-Basepath: \n"
-"X-Poedit-Bookmarks: \n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Textdomain-Support: yes"
 
+# @ GBMI-calc
 #: gbmicalc.php:276
-#@ GBMI-calc
 msgid "Grown ups"
 msgstr "Erwachsene"
 
+# @ GBMI-calc
 #: gbmicalc.php:278
-#@ GBMI-calc
 msgid "Child"
 msgstr "Kinder"
 
+# @ GBMI-calc
 #: gbmicalc.php:219
-#@ GBMI-calc
 msgid "Please enter a valid height and weight."
 msgstr "Bitte geben Sie die Körpergröße ein."
 
-#: gbmicalc.php:294
-#: gbmicalc.php:304
-#: gbmicalc.php:355
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:294 gbmicalc.php:304 gbmicalc.php:355
 msgid "Height"
 msgstr "Größe"
 
+# @ GBMI-calc
 #: gbmicalc.php:295
-#@ GBMI-calc
 msgid "ft"
-msgstr "Feet"
+msgstr "Fuß"
 
-#: gbmicalc.php:299
-#: gbmicalc.php:308
-#: gbmicalc.php:367
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:299 gbmicalc.php:308 gbmicalc.php:367
 msgid "Weight"
 msgstr "Gewicht"
 
-#: gbmicalc.php:300
-#: gbmicalc.php:370
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:300 gbmicalc.php:370
 msgid "pounds"
 msgstr "Pfund"
 
-#: gbmicalc.php:305
-#: gbmicalc.php:362
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:305 gbmicalc.php:362
 msgid "cm"
 msgstr "cm"
 
-#: gbmicalc.php:309
-#: gbmicalc.php:373
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:309 gbmicalc.php:373
 msgid "kg"
 msgstr "kg"
 
-#: gbmicalc.php:324
-#: gbmicalc.php:389
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:324 gbmicalc.php:389
 msgid "GBMI Calculator"
 msgstr "BMI Rechner"
 
-#: gbmicalc.php:286
-#: gbmicalc.php:339
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:286 gbmicalc.php:339
 msgid "Gender"
 msgstr "Geschlecht"
 
-#: gbmicalc.php:288
-#: gbmicalc.php:341
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:288 gbmicalc.php:341
 msgid "Male"
 msgstr "männlich"
 
-#: gbmicalc.php:289
-#: gbmicalc.php:342
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:289 gbmicalc.php:342
 msgid "Female"
 msgstr "weiblich"
 
+# @ GBMI-calc
 #: gbmicalc.php:359
-#@ GBMI-calc
 msgid "inches"
-msgstr "inches"
+msgstr "Zoll"
 
-#: gbmicalc.php:175
-#: gbmicalc.php:197
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:175 gbmicalc.php:197
 msgid "severly underweight"
 msgstr "Schweres Untergewicht"
 
-#: gbmicalc.php:139
-#: gbmicalc.php:178
-#: gbmicalc.php:200
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:139 gbmicalc.php:178 gbmicalc.php:200
 msgid "underweight"
 msgstr "Untergewicht"
 
-#: gbmicalc.php:140
-#: gbmicalc.php:181
-#: gbmicalc.php:203
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:140 gbmicalc.php:181 gbmicalc.php:203
 msgid "normal"
 msgstr "Normalgewicht"
 
-#: gbmicalc.php:141
-#: gbmicalc.php:184
-#: gbmicalc.php:206
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:141 gbmicalc.php:184 gbmicalc.php:206
 msgid "overweight"
 msgstr "Übergewicht"
 
-#: gbmicalc.php:142
-#: gbmicalc.php:187
-#: gbmicalc.php:209
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:142 gbmicalc.php:187 gbmicalc.php:209
 msgid "moderately obese"
 msgstr "Hohes Übergewicht"
 
-#: gbmicalc.php:190
-#: gbmicalc.php:212
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:190 gbmicalc.php:212
 msgid "severly obese"
 msgstr "Sehr hohes Übergewicht"
 
+# @ GBMI-calc
 #: gbmicalc.php:224
-#@ GBMI-calc
 msgid "Your BMI is"
 msgstr "Ihr BMI ist"
 
-#: gbmicalc.php:145
-#: gbmicalc.php:224
-#@ GBMI-calc
+# @ GBMI-calc
+#: gbmicalc.php:145 gbmicalc.php:224
 msgid "This puts you in the"
 msgstr "Sie haben"
 
+# @ GBMI-calc
 #: gbmicalc.php:346
-#@ GBMI-calc
 msgid "Age"
 msgstr "Alter"
 
+# @ GBMI-calc
 #: gbmicalc.php:334
-#@ GBMI-calc
 msgid "Child BMI calculator is only valid for children between 2 and 20 years."
 msgstr "Der BMI Rechner für Kinder ist nur im Altersbereich 2-20 gültig."
 
+# @ GBMI-calc
 #: gbmicalc.php:353
-#@ GBMI-calc
 msgid "Jahre"
 msgstr "Jahre"
 
+# @ GBMI-calc
 #: gbmicalc.php:380
-#@ GBMI-calc
 msgid "Get child BMI!"
 msgstr "BMI berechnen!"
 
+# @ GBMI-calc
 #: gbmicalc.php:315
-#@ GBMI-calc
 msgid "Get BMI!"
 msgstr "BMI berechnen!"
 
+# @ GBMI-calc
 #: gbmicalc.php:143
-#@ GBMI-calc
 msgid "Your child's BMI is:"
-msgstr "Your child's BMI is:"
+msgstr "Der BMI Ihres Kindes ist:"
 
+# @ GBMI-calc
 #: gbmicalc.php:144
-#@ GBMI-calc
 msgid "BMI percentile"
-msgstr "BMI percentile"
+msgstr "BMI in Prozent"
 
+# @ GBMI-calc
 #: gbmicalc.php:146
-#@ GBMI-calc
 msgid "weight range"
-msgstr "weight range"
+msgstr "&nbsp;"
 
+# @ GBMI-calc
 #: gbmicalc.php:147
-#@ GBMI-calc
 msgid "Enter a valid height and weight"
-msgstr "Enter a valid height and weight"
+msgstr "Geben Sie eine gültige Größe und Gewicht ein "
 
+# @ GBMI-calc
 #: gbmicalc.php:148
-#@ GBMI-calc
 msgid "Enter a valid height"
-msgstr "Enter a valid height"
+msgstr "Geben Sie eine gültige Größe ein"
 
+# @ GBMI-calc
 #: gbmicalc.php:149
-#@ GBMI-calc
 msgid "Enter a valid weight"
-msgstr "Enter a valid weight"
+msgstr "Geben Sie ein gültiges Gewicht ein"
 
+# @ GBMI-calc
 #: gbmicalc.php:150
-#@ GBMI-calc
 msgid "Enter a valid age"
-msgstr "Enter a valid age"
-
+msgstr "Geben Sie ein gültiges Alter an"

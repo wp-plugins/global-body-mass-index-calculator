@@ -121,6 +121,7 @@ class GBMI_Calc_Widget {
     }
 
     function widget($args, $content=NULL) {
+		ob_start();
 
         @extract($args);
         $options = get_option('GBMI_Calc_Widget', $data);
@@ -449,6 +450,11 @@ class GBMI_Calc_Widget {
 
         <?php
         echo $after_widget; 
+		
+		$output_string = ob_get_contents();
+		ob_end_clean();
+	
+		echo $output_string;
 
     }  // widget() function closed
 
@@ -606,15 +612,7 @@ function add_scripts() {
     ?>
 	
 	
-    <?php if( wp_get_theme() == "Propulsion" ) { 
-		if(!is_front_page()) {
-	?>
-		<script type="text/javascript" src="<?php echo plugin_dir_url(''); ?>global-body-mass-index-calculator/js/jquery.tools.min.js"></script>
-	<?php } 
-	} 
-	else { ?>
-		<script type="text/javascript" src="<?php echo plugin_dir_url(''); ?>global-body-mass-index-calculator/js/jquery.tools.min.js"></script>
-	<?php } ?>
+	<script type="text/javascript" src="<?php echo plugin_dir_url(''); ?>global-body-mass-index-calculator/js/jquery.tools.min.js"></script>
 	
     <link rel="stylesheet" type="text/css" href="<?php echo plugin_dir_url(''); ?>global-body-mass-index-calculator/css/tab.css" />
     <style type="text/css">
