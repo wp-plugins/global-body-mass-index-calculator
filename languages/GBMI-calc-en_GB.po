@@ -1,0 +1,213 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: \n"
+"X-Poedit-Country: \n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: gbmicalc.php:276
+#@ GBMI-calc
+msgid "Grown ups"
+msgstr "Grown ups"
+
+#: gbmicalc.php:278
+#@ GBMI-calc
+msgid "Child"
+msgstr "Child"
+
+#: gbmicalc.php:219
+#@ GBMI-calc
+msgid "Please enter a valid height and weight."
+msgstr "Please enter a valid height and weight."
+
+#: gbmicalc.php:294
+#: gbmicalc.php:304
+#: gbmicalc.php:355
+#@ GBMI-calc
+msgid "Height"
+msgstr "Height"
+
+#: gbmicalc.php:295
+#@ GBMI-calc
+msgid "ft"
+msgstr "ft"
+
+#: gbmicalc.php:299
+#: gbmicalc.php:308
+#: gbmicalc.php:367
+#@ GBMI-calc
+msgid "Weight"
+msgstr "Weight"
+
+#: gbmicalc.php:300
+#: gbmicalc.php:370
+#@ GBMI-calc
+msgid "pounds"
+msgstr "pounds"
+
+#: gbmicalc.php:305
+#: gbmicalc.php:362
+#@ GBMI-calc
+msgid "cm"
+msgstr "cm"
+
+#: gbmicalc.php:309
+#: gbmicalc.php:373
+#@ GBMI-calc
+msgid "kg"
+msgstr "kg"
+
+#: gbmicalc.php:324
+#: gbmicalc.php:389
+#@ GBMI-calc
+msgid "GBMI Calculator"
+msgstr "GBMI Calculator"
+
+#: gbmicalc.php:286
+#: gbmicalc.php:339
+#@ GBMI-calc
+msgid "Gender"
+msgstr "Gender"
+
+#: gbmicalc.php:288
+#: gbmicalc.php:341
+#@ GBMI-calc
+msgid "Male"
+msgstr "Male"
+
+#: gbmicalc.php:289
+#: gbmicalc.php:342
+#@ GBMI-calc
+msgid "Female"
+msgstr "Female"
+
+#: gbmicalc.php:359
+#@ GBMI-calc
+msgid "inches"
+msgstr "inches"
+
+#: gbmicalc.php:175
+#: gbmicalc.php:197
+#@ GBMI-calc
+msgid "severly underweight"
+msgstr "severly underweight"
+
+#: gbmicalc.php:139
+#: gbmicalc.php:178
+#: gbmicalc.php:200
+#@ GBMI-calc
+msgid "underweight"
+msgstr "underweight"
+
+#: gbmicalc.php:140
+#: gbmicalc.php:181
+#: gbmicalc.php:203
+#@ GBMI-calc
+msgid "normal"
+msgstr "normal"
+
+#: gbmicalc.php:141
+#: gbmicalc.php:184
+#: gbmicalc.php:206
+#@ GBMI-calc
+msgid "overweight"
+msgstr "overweight"
+
+#: gbmicalc.php:142
+#: gbmicalc.php:187
+#: gbmicalc.php:209
+#@ GBMI-calc
+msgid "moderately obese"
+msgstr "moderately obese"
+
+#: gbmicalc.php:190
+#: gbmicalc.php:212
+#@ GBMI-calc
+msgid "severly obese"
+msgstr "severly obese"
+
+#: gbmicalc.php:224
+#@ GBMI-calc
+msgid "Your BMI is"
+msgstr "Your BMI is"
+
+#: gbmicalc.php:145
+#: gbmicalc.php:224
+#@ GBMI-calc
+msgid "This puts you in the"
+msgstr "This puts you in the"
+
+#: gbmicalc.php:346
+#@ GBMI-calc
+msgid "Age"
+msgstr "Age"
+
+#: gbmicalc.php:334
+#@ GBMI-calc
+msgid "Child BMI calculator is only valid for children between 2 and 20 years."
+msgstr "Child BMI calculator is only valid for children between 2 and 20 years."
+
+#: gbmicalc.php:353
+#@ GBMI-calc
+msgid "Jahre"
+msgstr "Jahre"
+
+#: gbmicalc.php:380
+#@ GBMI-calc
+msgid "Get child BMI!"
+msgstr "Get child BMI!"
+
+#: gbmicalc.php:315
+#@ GBMI-calc
+msgid "Get BMI!"
+msgstr "Get BMI!"
+
+#: gbmicalc.php:143
+#@ GBMI-calc
+msgid "Your child's BMI is:"
+msgstr "Your childssd's BMI is:"
+
+#: gbmicalc.php:144
+#@ GBMI-calc
+msgid "BMI percentile"
+msgstr "BMI percentile"
+
+#: gbmicalc.php:146
+#@ GBMI-calc
+msgid "weight range"
+msgstr "weight range"
+
+#: gbmicalc.php:147
+#@ GBMI-calc
+msgid "Enter a valid height and weight"
+msgstr "Enter a valid height and weight"
+
+#: gbmicalc.php:148
+#@ GBMI-calc
+msgid "Enter a valid height"
+msgstr "Enter a valid height"
+
+#: gbmicalc.php:149
+#@ GBMI-calc
+msgid "Enter a valid weight"
+msgstr "Enter a valid weight"
+
+#: gbmicalc.php:150
+#@ GBMI-calc
+msgid "Enter a valid age"
+msgstr "Enter a valid age"
+
