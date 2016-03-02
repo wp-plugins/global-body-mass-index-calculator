@@ -17,15 +17,12 @@ define('MY_TEXTDOMAIN', 'GBMI-calc');
 load_plugin_textdomain(MY_TEXTDOMAIN, WP_PLUGIN_URL . '/global-body-mass-index-calculator/languages', 'global-body-mass-index-calculator/languages');
 
 function add_gbmi_javascript() {
+	wp_enqueue_script('jquery');
     if (is_admin()) {
-        wp_enqueue_script('calc-colorpicker', WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/plugins/colorpicker/colorpicker.js', array('jquery'));
-        wp_enqueue_style('colorpicker-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/plugins/colorpicker/css/colorpicker.css');
+		wp_enqueue_script('jquery-color');
         wp_enqueue_style('backend-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/css/backend.css');
     } else {
-		wp_deregister_script( 'jquery' ); // deregistering any jquery script
-		wp_register_script( 'jquery', WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/jquery.min.js');// registering jquery again
-        wp_enqueue_script('jquery');
-
+		wp_enqueue_script('jquery-ui-tabs');
         wp_enqueue_style('front-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/css/front.css');
     }
 }
@@ -131,6 +128,8 @@ class GBMI_Calc_Widget {
 
         <script type="text/javascript">
             jQuery(document).ready(function($) {
+				 $("ul.tabs").tabs();
+				 
                 childTranslate = {
                     underweight: '<?php _e('underweight', MY_TEXTDOMAIN); ?>',
                     norm: '<?php _e('normal', MY_TEXTDOMAIN); ?>',
@@ -438,7 +437,6 @@ class GBMI_Calc_Widget {
                                    style="text-decoration: underline; color: <?php echo $textcolor ? $textcolor : "#ffffff" ?>;"><?php _e('GBMI Calculator', MY_TEXTDOMAIN); ?></a>
                                 </div>
         <?php } ?>
-                            <script language="JavaScript" type="text/javascript">recalc_onclick('');  </script>
                         </form>
                     </div>
                 </div>
@@ -611,9 +609,6 @@ function gbmi_calc_settings() {
 function add_scripts() {
     ?>
 	
-	
-	<script type="text/javascript" src="<?php echo plugin_dir_url(''); ?>global-body-mass-index-calculator/js/jquery.tools.min.js"></script>
-	
     <link rel="stylesheet" type="text/css" href="<?php echo plugin_dir_url(''); ?>global-body-mass-index-calculator/css/tab.css" />
     <style type="text/css">
         .panes div.tabbed {
@@ -621,12 +616,7 @@ function add_scripts() {
             border:1px solid #999;
         }
     </style>
-    <script type="text/javascript">
-        $(function() {
-            $("ul.tabs").tabs("div.panes > div.tabbed");
-           // $('ul.tabs li:last').css({'width':'49%', 'border':'none' });
-        });
-    </script>
+   
     <?php
 }
 
