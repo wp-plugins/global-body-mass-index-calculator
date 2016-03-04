@@ -50,20 +50,18 @@ jQuery(document).ready(function($) {
 	function showChildResults(bmi, percentile){
 		desiredCat = childTranslate.underweight;
 
-        if (percentile > 5 || percentile == '< 5th') {
-			percentile = 4;
+        if (percentile > 5) {
             desiredCat = childTranslate.norm;
         }
         else if (percentile > 85) {
             desiredCat = childTranslate.overweight;
         }
         else if (percentile > 95 || percentile == '> 95th') {
-			percentile = 96;
             desiredCat = childTranslate.moderately_obese;
         }
 
 
-        if ($.isNumeric( percentile )){
+        if ($.isNumeric( percentile ) || percentile == '> 95th' || percentile == '< 5th' ){
 			$('#BMIresults').hide().fadeOut();
 			$('#childBMIresults').hide().html(childTranslate.child_res1+' '+bmi +
 				". <br />" + childTranslate.child_res2+ " " + percentile + ".<br/>"+childTranslate.child_res3+" <strong>"+desiredCat+"</strong> "+childTranslate.child_res4).fadeIn();

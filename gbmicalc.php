@@ -17,21 +17,20 @@ define('MY_TEXTDOMAIN', 'GBMI-calc');
 load_plugin_textdomain(MY_TEXTDOMAIN, WP_PLUGIN_URL . '/global-body-mass-index-calculator/languages', 'global-body-mass-index-calculator/languages');
 
 function add_gbmi_javascript() {
-	wp_enqueue_script('jquery');
-
     if (is_admin()) {
+		wp_enqueue_script('jquery-core');
 		wp_enqueue_script('jquery-color');
-        wp_enqueue_style('backend-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/css/backend.css');
+		wp_register_script('gbmi-calcs', WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/calcs.js');
+		wp_enqueue_script('gbmi-calcs');
+		wp_enqueue_style('backend-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/css/backend.css');
     } else {
 		wp_enqueue_script('jquery-ui-tabs');
 		wp_enqueue_script('gbmi-child', WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/child.js');
 		
 		wp_enqueue_style('gbmi-front-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/css/front.css');
 		wp_enqueue_style('gbmi-tab-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/css/tab.css');
-		
     }
-	wp_register_script('gbmi-calcs', WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/calcs.js');
-	wp_enqueue_style('gbmi-calcs');
+	
 }
 
 class GBMI_Calc_Widget {
@@ -594,4 +593,11 @@ function gbmi_calc_settings() {
         header("Refresh: $sec; url=$page");
  }
 }
+
+
+function add_scripts() {
+   wp_enqueue_script('jquery');
+}
+
+add_action('wp_head', 'add_scripts');
 ?>
