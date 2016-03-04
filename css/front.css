@@ -1,3 +1,8 @@
+#gdmi-tabs {
+    border: 1px solid #0ABAB5;
+    padding-bottom: 10px;
+}
+
 #gdmi-tabs ul {
     margin-bottom: 0px;
 }
@@ -23,7 +28,7 @@
     border: 0;
     padding: 5px;
   /*  font-weight: bold; */
-    border: 1px solid #AAAAAA;
+    border: 1px solid #0ABAB5;
 }
 
 #child label, #grown label {
@@ -43,6 +48,7 @@
 
 .input_fw{
       width: 30px;
+      border-color: #CCCCCC #EEEEEE #EEEEEE #CCCCCC !important;
 }
 
 #bmisubmit, #childbmisubmit {margin: 5px  0px  0px  0px;}
@@ -57,7 +63,6 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     */
-    border: 1px solid #AAA;
 
     display: none;
   /*  font-size: 14pt; */
@@ -77,7 +82,7 @@
 
 span.bmifeet, span.bmipounds { margin-left: 8px; font-size: 12px }
 
-#infotext { font-size: 12px; font: 12px/20px Arial,sans-serif !important;}
+.infotext { font-size: 12px; font: 12px/20px Arial,sans-serif !important; padding: 10px}
 
 #bmisubmit, #childbmisubmit { padding: 3px; }
 
@@ -103,7 +108,11 @@ span.bmifeet, span.bmipounds { margin-left: 8px; font-size: 12px }
 .gender_select{
     
 }
-.age_select{
-    
+.age_select select{
+    margin-top: 5px;
 }
 
+#p1B2, #p1B222{
+    width:65px;
+    border-color: #CCCCCC #EEEEEE #EEEEEE #CCCCCC !important;
+}
