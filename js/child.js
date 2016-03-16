@@ -21,31 +21,29 @@ jQuery(document).ready(function($) {
         calc(co);
         bmi = eeisnumber(co.p1B7) ? eedisplayFloatND(co.p1B7, 1) : co.p1B7;
         percentile = eeisnumber(co.p1B8) ? eedisplayFloatND(co.p1B8, 0) : co.p1B8;
+
+
+
+
+
+
+
+
+
+
+
+
+
         //    document.formc.p1B9.value = eeisnumber(co.p1B9) ? eedisplayFloatND(co.p1B9, 1) : co.p1B9;
 
-        //    showChildResults(bmi, percentile);
 
 
-        desiredCat = childTranslate.underweight;
-
-        if (percentile > 5) {
-            desiredCat = childTranslate.norm;
-        }
-        else if (percentile > 85) {
-            desiredCat = childTranslate.overweight;
-        }
-        else if (percentile > 95) {
-            desiredCat = childTranslate.moderately_obese;
-        }
-
-
-        $('#BMIresults').hide().fadeOut();
-        $('#childBMIresults').hide().html(childTranslate.child_res1+' '+bmi +
-            ". <br />" + childTranslate.child_res2+ " " + percentile + ".<br/>"+childTranslate.child_res3+" "+desiredCat+" "+childTranslate.child_res4).fadeIn();
+		showChildResults(bmi, percentile);
+        
     });
     
     
-     $("#p1B2").change(function() {
+    $("#p1B2").change(function() {
 
         co.p1B2 = document.formc.p1B2[document.formc.p1B2.selectedIndex].value;
         co.p1B3 = document.formc.p1B3[document.formc.p1B3.selectedIndex].value;
@@ -59,9 +57,13 @@ jQuery(document).ready(function($) {
         percentile = eeisnumber(co.p1B8) ? eedisplayFloatND(co.p1B8, 0) : co.p1B8;
         //    document.formc.p1B9.value = eeisnumber(co.p1B9) ? eedisplayFloatND(co.p1B9, 1) : co.p1B9;
 
-        //    showChildResults(bmi, percentile);
+        showChildResults(bmi, percentile);
+		
+        
+    });
 
-        desiredCat = childTranslate.underweight;
+	function showChildResults(bmi, percentile){
+		desiredCat = childTranslate.underweight;
 
         if (percentile > 5) {
             desiredCat = childTranslate.norm;
@@ -69,16 +71,26 @@ jQuery(document).ready(function($) {
         else if (percentile > 85) {
             desiredCat = childTranslate.overweight;
         }
-        else if (percentile > 95) {
+        else if (percentile > 95 || percentile == '> 95th') {
             desiredCat = childTranslate.moderately_obese;
         }
 
 
-        $('#BMIresults').hide().fadeOut();
-        $('#childBMIresults').hide().html(childTranslate.child_res1+' '+bmi +
-            ". <br />" + childTranslate.child_res2+ " " + percentile + ".<br/>"+childTranslate.child_res3+" "+desiredCat+" "+childTranslate.child_res4).fadeIn();
-    });
 
+
+
+
+
+        if ($.isNumeric( percentile ) || percentile == '> 95th' || percentile == '< 5th' ){
+			$('#BMIresults').hide().fadeOut();
+			$('#childBMIresults').hide().html(childTranslate.child_res1+' '+bmi +
+				". <br />" + childTranslate.child_res2+ " " + percentile + ".<br/>"+childTranslate.child_res3+" <strong>"+desiredCat+"</strong> "+childTranslate.child_res4).fadeIn();
+		} else{
+			$('#BMIresults').hide().fadeOut();
+			$('#childBMIresults').hide().html(percentile).fadeIn();
+		}
+	}
+	
     var eeisus = 1;
     var eetrue = "TRUE";
     var eefalse = "FALSE";

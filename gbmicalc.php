@@ -18,16 +18,19 @@ load_plugin_textdomain(MY_TEXTDOMAIN, WP_PLUGIN_URL . '/global-body-mass-index-c
 
 function add_gbmi_javascript() {
     if (is_admin()) {
-        wp_enqueue_script('calc-colorpicker', WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/plugins/colorpicker/colorpicker.js', array('jquery'));
-        wp_enqueue_style('colorpicker-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/plugins/colorpicker/css/colorpicker.css');
-        wp_enqueue_style('backend-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/css/backend.css');
+		wp_enqueue_script('jquery-core');
+		wp_enqueue_script('jquery-color');
+		wp_register_script('gbmi-calcs', WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/calcs.js');
+		wp_enqueue_script('gbmi-calcs');
+		wp_enqueue_style('backend-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/css/backend.css');
     } else {
-		wp_deregister_script( 'jquery' ); // deregistering any jquery script
-		wp_register_script( 'jquery', WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/jquery.min.js');// registering jquery again
-        wp_enqueue_script('jquery');
-
-        wp_enqueue_style('front-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/css/front.css');
+		wp_enqueue_script('jquery-ui-tabs');
+		wp_enqueue_script('gbmi-child', WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/child.js');
+		
+		wp_enqueue_style('gbmi-front-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/css/front.css');
+		wp_enqueue_style('gbmi-tab-styles', WP_PLUGIN_URL . '/global-body-mass-index-calculator/css/tab.css');
     }
+	
 }
 
 class GBMI_Calc_Widget {
@@ -104,8 +107,6 @@ class GBMI_Calc_Widget {
                                                                    value="yes" <?php echo $data['allowLink'] == 'yes' ? "checked" : "" ?>/></label>
         </p>
 
-        <script src="<?php echo WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/calcs.js'; ?>"></script>
-
         <?php
         if (isset($_POST['title'])) { 
             $data['title'] = attribute_escape($_POST['title']);
@@ -131,6 +132,12 @@ class GBMI_Calc_Widget {
 
         <script type="text/javascript">
             jQuery(document).ready(function($) {
+				 $("#gdmi-tabs").tabs();
+				 $( "#gdmi-tabs ul li a" ).click(function() {
+					$('#BMIresults').hide().fadeOut();
+					$('#childBMIresults').hide().fadeOut();
+				 });
+				 
                 childTranslate = {
                     underweight: '<?php _e('underweight', MY_TEXTDOMAIN); ?>',
                     norm: '<?php _e('normal', MY_TEXTDOMAIN); ?>',
@@ -138,8 +145,8 @@ class GBMI_Calc_Widget {
                     moderately_obese: '<?php _e('moderately obese', MY_TEXTDOMAIN); ?>',
                     child_res1: "<?php _e("Your child's BMI is:", MY_TEXTDOMAIN); ?>",
                     child_res2: '<?php _e("BMI percentile", MY_TEXTDOMAIN); ?>',
-                    child_res3: '<?php _e("This puts you in the", MY_TEXTDOMAIN); ?>',
-                    child_res4: '<?php _e("weight range", MY_TEXTDOMAIN); ?>',
+                    child_res3: '<?php _e("", MY_TEXTDOMAIN); ?>',
+                    child_res4: '<?php _e("", MY_TEXTDOMAIN); ?>',
                     valid1: '<?php _e("Enter a valid height and weight", MY_TEXTDOMAIN); ?>',
                     valid2: '<?php _e("Enter a valid height", MY_TEXTDOMAIN); ?>',
                     valid3: '<?php _e("Enter a valid weight", MY_TEXTDOMAIN); ?>',
@@ -284,22 +291,7 @@ class GBMI_Calc_Widget {
             });
         </script>
 
-        <script src="<?php echo WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/child.js'; ?>"></script>
-
         <style type="text/css">
-            .ui-widget {
-                font-family: Arial, sans-serif;
-                font-size: 1.1em;
-                font: 12px/20px Arial, sans-serif;
-            }
-            .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
-                font-family: Arial, sans-serif;
-                font: 12px/20px Arial, sans-serif;
-                font-size: 1em;
-                color: #000;
-                border: 1px solid #aaa;
-            }
-            .ui-widget select{ padding: 1px;}
             .gbmi_div {
                 color: <?php echo $textcolor ? $textcolor : "#000" ?>;
                 background-color: <?php echo $bgcolor ? $bgcolor : '#ffffff' ?>;
@@ -322,128 +314,123 @@ class GBMI_Calc_Widget {
             }
 
         </style>
-
+		<?php if (is_page('calculator-imc') and !$args) { ?>
+        <img src="http://techdadreview.com/wp-content/uploads/2013/03/baby-and-toddler-scale-550x322.jpg" width="500" style="float:right;"/>
+        <?php } else { ?>
+		<h3 class="widget-title"><span>Calculator IMC</span></h3>
+		<?php } ?>
         <div id="gdmi-tabs"
              style="height: <?php echo $height ? $height : "#auto" ?>px; width: <?php echo $width ? $width : "300" ?>px;">
             <ul class="tabs">
-                <li><a href="#grown"><?php _e('Grown ups', MY_TEXTDOMAIN); ?></a></li>
-                <li><a href="#child"><?php _e('Child', MY_TEXTDOMAIN); ?></a></li>
+				<li><a href="#child" class="gdmi-tab"><?php _e('Child', MY_TEXTDOMAIN); ?></a></li>
+                <li><a href="#grown" class="gdmi-tab"><?php _e('Grown ups', MY_TEXTDOMAIN); ?></a></li>              
             </ul>
 
-            <div class="panes">
+			<div id="child">
+				<div>
+					<h2 class="infotext"><?php _e('Child BMI calculator is only valid for children between 2 and 20 years.', MY_TEXTDOMAIN); ?></h2>
+				</div>
 
-                <div id="grown" class="tabbed">
-                    <div class="gbmi_div">
-                        <h2><?php echo $title; ?></h2>
-                        <div class="gender_select">
-                            <label for="p1B222"><?php _e('Gender', MY_TEXTDOMAIN); ?>:</label>
-                            <select id="p1B222" tabindex="1" name="gender_bmi">
-                                <option value="Male" selected="selected"><?php _e('Male', MY_TEXTDOMAIN); ?></option>
-                                <option value="Female"><?php _e('Female', MY_TEXTDOMAIN); ?></option>
-                            </select>
-                        </div>
-        <?php if ($standard == 'standard') { ?>
-                            <div>
-                                <label for="bmifeet"><?php _e('Height', MY_TEXTDOMAIN); ?>:</label>
-                                <input name="bmifeet" class="input_fw"/> <?php _e('ft', MY_TEXTDOMAIN); ?> <input name="bmiinches" style="width: 30px;"/> in
-                            </div>
-                            <div>
-                                <label for="bmipounds"><?php _e('Weight', MY_TEXTDOMAIN); ?>:</label>
-                                <input name="bmipounds" class="input_fw"/> <?php _e('pounds', MY_TEXTDOMAIN); ?>
-                            </div>
-        <?php } else { ?>
-                            <div>
-                                <label for="bmifeet"><?php _e('Height', MY_TEXTDOMAIN); ?>:</label>
-                                <input name="bmifeet" class="input_fw"/><span class="bmipounds"><?php _e('cm', MY_TEXTDOMAIN); ?></span>
-                            </div>
+				<form id="formc" name="formc" action="" method="post">
+					<div class="gender_select">
+						<label for="p1B2"><?php _e('Gender', MY_TEXTDOMAIN); ?>:</label>
+						<select id="p1B2" tabindex="1">
+							<option value="Male" selected="selected"><?php _e('Male', MY_TEXTDOMAIN); ?></option>
+							<option value="Female"><?php _e('Female', MY_TEXTDOMAIN); ?></option>
+						</select>
+					</div>
+					<div class="age_select">
+						<label for="p1B3"><?php _e('Age', MY_TEXTDOMAIN); ?>:</label>
+						<select id="p1B3" name="p1B3">
+							<?php for ($i = 2; $i < 21; $i++) { ?>
+								<option value="<?php echo $i ?>"><?php echo $i ?></option>
+							<?php } ?>
+						</select>
+							
+					</div>
 
-                            <div>
-                                <label for="bmipounds"><?php _e('Weight', MY_TEXTDOMAIN); ?>:</label>
-                                <td><input name="bmipounds" class="input_fw"><span class="bmipounds"><?php _e('kg', MY_TEXTDOMAIN); ?></span>
-                                </td>
-                            </div>
-        <?php } ?>
-                        <div>
-                            <label>&nbsp;</label>
-                            <input id="bmisubmit" type="button" value="<?php _e('Get BMI!', MY_TEXTDOMAIN); ?>" class="bmisubmit"
-                                   style="color:<?php echo $textcolor ? $textcolor : "#000" ?>;
-                                   background-color: <?php echo $bgcolor ? $bgcolor : "#e5e5e5" ?>;" />
-                        </div>
+					<div><label for="p1B4"><?php _e('Height', MY_TEXTDOMAIN); ?>:</label>
+						<input id="p1B4" class="input_fw" name="p1B4"/>
+<?php if ($standard == 'standard') { ?>
+							<?php _e('inches', MY_TEXTDOMAIN); ?>
+							<input id="p1C4" type="hidden" value="inches" name="p1C4"/>
+						<?php } else { ?>
+							<?php _e('cm', MY_TEXTDOMAIN); ?>
+							<input id="p1C4" type="hidden" value="centimeters" name="p1C4"/>
+						<?php } ?>
+					</div>
+					<div>
+						<label for="p1B5"><?php _e('Weight', MY_TEXTDOMAIN); ?>:</label>
+						<input id="p1B5" class="input_fw" name="p1B5"/>
+<?php if ($standard == 'standard') { ?>
+							<?php _e('pounds', MY_TEXTDOMAIN); ?>
+							<input id="p1C5" type="hidden" value="pounds" name="p1C5"/>
+						<?php } else { ?>
+							<?php _e('kg', MY_TEXTDOMAIN); ?>
+							<input id="p1C5" type="hidden" value="kilograms" name="p1C5"/>
+						<?php } ?>
+					</div>
 
-        <?php if ($allowLink == 'yes') { ?>
-                            <a href="http://www.gesundesabnehmen.at/" title="BMI Rechner - Gesund Abnehmen, Diaeten und Ern&auml;hrung"
-                               style="text-decoration: underline; color: #ccc;"><?php _e('by gesundesabnehmen.at', MY_TEXTDOMAIN); ?></a>
-        <?php } else
-             ?>
-                    </div>
-                </div>
+					<div>
+						<label>&nbsp;</label>
+						<input type="button" id="childbmisubmit" class="bmisubmit"
+							   value="<?php _e('Get child BMI!', MY_TEXTDOMAIN); ?>"
+							   style="color:<?php echo $textcolor ? $textcolor : "#FFF" ?>;
+							   background-color: <?php echo $bgcolor ? $bgcolor : "#0ABAB5" ?>;" />
+					</div>
+<?php if ($allowLink == 'yes') { ?>
+						<div style="display: none";>
+							 <a href=" http://www.gesundesabnehmen.at/"
+						   style="text-decoration: underline; color: <?php echo $textcolor ? $textcolor : "#ffffff" ?>;"><?php _e('GBMI Calculator', MY_TEXTDOMAIN); ?></a>
+						</div>
+<?php } ?>
+				</form>
+			</div>
 
-                <div id="child" class="tabbed">
-                    <div class="gbmi_div">
-                        <div>
-                            <h2><?php echo $title; ?></h2>
-                            <h2 id="infotext"><?php _e('Child BMI calculator is only valid for children between 2 and 20 years.', MY_TEXTDOMAIN); ?></h2>
-                        </div>
+			<div id="grown">
+					<h2 class="infotext"><?php _e('Indicele de masa corporala', MY_TEXTDOMAIN); ?></h2>
+					<div class="gender_select">
+						<label for="p1B222"><?php _e('Gender', MY_TEXTDOMAIN); ?>:</label>
+						<select id="p1B222" tabindex="1" name="gender_bmi">
+							<option value="Male" selected="selected"><?php _e('Male', MY_TEXTDOMAIN); ?></option>
+							<option value="Female"><?php _e('Female', MY_TEXTDOMAIN); ?></option>
+						</select>
+					</div>
+	<?php if ($standard == 'standard') { ?>
+						<div>
+							<label for="bmifeet"><?php _e('Height', MY_TEXTDOMAIN); ?>:</label>
+							<input name="bmifeet" class="input_fw"/> <?php _e('ft', MY_TEXTDOMAIN); ?> <input name="bmiinches" style="width: 30px;"/> in
+						</div>
+						<div>
+							<label for="bmipounds"><?php _e('Weight', MY_TEXTDOMAIN); ?>:</label>
+							<input name="bmipounds" class="input_fw"/> <?php _e('pounds', MY_TEXTDOMAIN); ?>
+						</div>
+	<?php } else { ?>
+						<div>
+							<label for="bmifeet"><?php _e('Height', MY_TEXTDOMAIN); ?>:</label>
+							<input name="bmifeet" class="input_fw"/><span class="bmipounds"><?php _e('cm', MY_TEXTDOMAIN); ?></span>
+						</div>
 
-                        <form id="formc" name="formc" action="" method="post">
-                            <div class="gender_select">
-                                <label for="p1B2"><?php _e('Gender', MY_TEXTDOMAIN); ?>:</label>
-                                <select id="p1B2" tabindex="1">
-                                    <option value="Male" selected="selected"><?php _e('Male', MY_TEXTDOMAIN); ?></option>
-                                    <option value="Female"><?php _e('Female', MY_TEXTDOMAIN); ?></option>
-                                </select>
-                            </div>
-                            <div class="age_select">
-                                <label for="p1B3"><?php _e('Age', MY_TEXTDOMAIN); ?>: <span>(<?php _e('Jahre', MY_TEXTDOMAIN); ?>)</span></label>
-                                <select id="p1B3" name="p1B3">
-                                    <?php for ($i = 2; $i < 21; $i++) { ?>
-                                        <option value="<?php echo $i ?>"><?php echo $i ?></option>
-                                    <?php } ?>
-                                </select>
-                                    
-                            </div>
+						<div>
+							<label for="bmipounds"><?php _e('Weight', MY_TEXTDOMAIN); ?>:</label>
+							<td><input name="bmipounds" class="input_fw"><span class="bmipounds"><?php _e('kg', MY_TEXTDOMAIN); ?></span>
+							</td>
+						</div>
+	<?php } ?>
+					<div>
+						<label>&nbsp;</label>
+						<input id="bmisubmit" type="button" value="<?php _e('Get BMI!', MY_TEXTDOMAIN); ?>" class="bmisubmit"
+							   style="color:<?php echo $textcolor ? $textcolor : "#fff" ?>;
+							   background-color: <?php echo $bgcolor ? $bgcolor : "#0ABAB5" ?>;" />
+					</div>
 
-                            <div><label for="p1B4"><?php _e('Height', MY_TEXTDOMAIN); ?>:</label>
-                                <input id="p1B4" class="input_fw" value="107" name="p1B4"/>
-        <?php if ($standard == 'standard') { ?>
-                                    <?php _e('inches', MY_TEXTDOMAIN); ?>
-                                    <input id="p1C4" type="hidden" value="inches" name="p1C4"/>
-                                <?php } else { ?>
-                                    <?php _e('cm', MY_TEXTDOMAIN); ?>
-                                    <input id="p1C4" type="hidden" value="centimeters" name="p1C4"/>
-                                <?php } ?>
-                            </div>
-                            <div>
-                                <label for="p1B5"><?php _e('Weight', MY_TEXTDOMAIN); ?>:</label>
-                                <input id="p1B5" class="input_fw" value="18" name="p1B5"/>
-        <?php if ($standard == 'standard') { ?>
-                                    <?php _e('pounds', MY_TEXTDOMAIN); ?>
-                                    <input id="p1C5" type="hidden" value="pounds" name="p1C5"/>
-                                <?php } else { ?>
-                                    <?php _e('kg', MY_TEXTDOMAIN); ?>
-                                    <input id="p1C5" type="hidden" value="kilograms" name="p1C5"/>
-                                <?php } ?>
-                            </div>
-
-                            <div>
-                                <label>&nbsp;</label>
-                                <input type="button" id="childbmisubmit" class="bmisubmit"
-                                       value="<?php _e('Get child BMI!', MY_TEXTDOMAIN); ?>"
-                                       style="color:<?php echo $textcolor ? $textcolor : "#000" ?>;
-                                       background-color: <?php echo $bgcolor ? $bgcolor : "#e5e5e5" ?>;" />
-                            </div>
-        <?php if ($allowLink == 'yes') { ?>
-                                <div style="display: none";>
-                                     <a href=" http://www.gesundesabnehmen.at/"
-                                   style="text-decoration: underline; color: <?php echo $textcolor ? $textcolor : "#ffffff" ?>;"><?php _e('GBMI Calculator', MY_TEXTDOMAIN); ?></a>
-                                </div>
-        <?php } ?>
-                            <script language="JavaScript" type="text/javascript">recalc_onclick('');  </script>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
+	<?php if ($allowLink == 'yes') { ?>
+						<a href="http://www.gesundesabnehmen.at/" title="BMI Rechner - Gesund Abnehmen, Diaeten und Ern&auml;hrung"
+						   style="text-decoration: underline; color: #ccc;"><?php _e('by gesundesabnehmen.at', MY_TEXTDOMAIN); ?></a>
+	<?php } else
+		 ?>
+			</div>
+		
             <div id="BMIresults"></div>
             <div id="childBMIresults"></div>
         </div>
@@ -485,7 +472,6 @@ function register_my_settings() {
 function gbmi_calc_settings() {
 
     $data = get_option('GBMI_Calc_Widget'); ?>
-    <script src="<?php echo WP_PLUGIN_URL . '/global-body-mass-index-calculator/js/calcs.js'; ?>"></script>    
     <div class="wrap">
         <h2>Global Body Mass Index Calculator Settings</h2>
 
@@ -608,26 +594,9 @@ function gbmi_calc_settings() {
  }
 }
 
+
 function add_scripts() {
-    ?>
-	
-	
-	<script type="text/javascript" src="<?php echo plugin_dir_url(''); ?>global-body-mass-index-calculator/js/jquery.tools.min.js"></script>
-	
-    <link rel="stylesheet" type="text/css" href="<?php echo plugin_dir_url(''); ?>global-body-mass-index-calculator/css/tab.css" />
-    <style type="text/css">
-        .panes div.tabbed {
-            display:none;		
-            border:1px solid #999;
-        }
-    </style>
-    <script type="text/javascript">
-        $(function() {
-            $("ul.tabs").tabs("div.panes > div.tabbed");
-           // $('ul.tabs li:last').css({'width':'49%', 'border':'none' });
-        });
-    </script>
-    <?php
+   wp_enqueue_script('jquery');
 }
 
 add_action('wp_head', 'add_scripts');

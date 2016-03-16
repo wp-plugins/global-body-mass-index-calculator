@@ -69,8 +69,8 @@
 	background: #f00;
 }
 .colorpicker input {
-	background-color: transparent !important;
-	border: 1px solid transparent !important;
+	background-color: transparent;
+	border: 1px solid transparent;
 	position: absolute;
 	font-size: 10px;
 	font-family: Arial, Helvetica, sans-serif;

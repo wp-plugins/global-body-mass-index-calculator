@@ -1,44 +1,50 @@
-ul.tabs { 
+#gdmi-tabs ul.tabs { 
 	list-style:none; 
 	margin:0 !important; 
 	padding:0;	
 	height:30px;
-	border:1px solid #999999;
-	border-bottom:none;
-        background: #fff;
+    background: #0ABAB5;
 }
 
-ul.tabs li { 
+#gdmi-tabs ul.tabs li { 
 	float:left;	 
 	text-indent:0;
 	padding:0;
+	height: 30px;
 	margin:0 !important;
-	list-style-image:none !important; 
-        width:50%;
+	list-style-image:none !important;
+	list-style:none !important;
+	outline: none;
+	width:50%;
+	background: #0ABAB5;
         
 }
 
-ul.tabs a { 
+#gdmi-tabs ul.tabs > a  { 
 	display:block;
 	width: 100%;
 	text-align:center;	
 	position:relative;
 	text-decoration:none;
 	height: 30px;
-        line-height: 30px;
+	line-height: 30px;
+	background: #0ABAB5;
+	color: #fff;
 }
 
-ul.tabs a:active {
-	outline:none;		
+#gdmi-tabs ul.tabs.ui-tabs-anchor a:active {
+	outline:none;	
+    background: #17c7c2;	
 }
 
-ul.tabs a:hover {
-	color:#000;	
+#gdmi-tabs ul.tabs a:hover {
+	color:#fff;	
 }
 
-ul.tabs a.current, ul.tabs a.current:hover, ul.tabs li.current a {
-    color: #000000 !important;
+#gdmi-tabs ul.tabs a.current, #gdmi-tabs ul.tabs a.current:hover, #gdmi-tabs ul.tabs li.current a, .ui-state-active, .ui-state-active a {
+    color: #fff !important;
     cursor: default !important;
+    background-color: #17c7c2 !important;
     width: 100%;
 }
 
@@ -59,4 +65,11 @@ ul.tabs a.xl.current {  }
 
 .panes .pane {
 	display:none;		
+}
+
+#gdmi-tabs a.gdmi-tab {
+        background: #0ABAB5;
+        color: #fff;
+        padding-left: 10px;
+        outline: none;
 }
