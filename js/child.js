@@ -21,7 +21,22 @@ jQuery(document).ready(function($) {
         calc(co);
         bmi = eeisnumber(co.p1B7) ? eedisplayFloatND(co.p1B7, 1) : co.p1B7;
         percentile = eeisnumber(co.p1B8) ? eedisplayFloatND(co.p1B8, 0) : co.p1B8;
+
+
+
+
+
+
+
+
+
+
+
+
+
         //    document.formc.p1B9.value = eeisnumber(co.p1B9) ? eedisplayFloatND(co.p1B9, 1) : co.p1B9;
+
+
 
 		showChildResults(bmi, percentile);
         
@@ -59,6 +74,11 @@ jQuery(document).ready(function($) {
         else if (percentile > 95 || percentile == '> 95th') {
             desiredCat = childTranslate.moderately_obese;
         }
+
+
+
+
+
 
 
         if ($.isNumeric( percentile ) || percentile == '> 95th' || percentile == '< 5th' ){
